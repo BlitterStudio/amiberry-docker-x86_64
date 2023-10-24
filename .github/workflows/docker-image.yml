@@ -25,7 +25,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build and push Docker image
+    - name: Build and push Buster Docker image
       uses: docker/build-push-action@v5.0.0
       with:
         build-args: "debian_release=buster"
@@ -34,7 +34,7 @@ jobs:
         push: true
         tags: "midwan/amiberry-debian-x86_64:buster"
 
-    - name: Build and push Docker image
+    - name: Build and push Bullseye Docker image
       uses: docker/build-push-action@v5.0.0
       with:
         build-args: "debian_release=bullseye"
@@ -43,11 +43,11 @@ jobs:
         push: true
         tags: "midwan/amiberry-debian-x86_64:bullseye"
 
-    - name: Build and push Docker image
+    - name: Build and push Bookworm Docker image
       uses: docker/build-push-action@v5.0.0
       with:
         build-args: "debian_release=bookworm"
         context: .
         file: ./Dockerfile
         push: true
-        tags: "midwan/amiberry-debian-x86_64:bookworm midwan/amiberry-debian-x86_64:latest"
+        tags: "midwan/amiberry-debian-x86_64:bookworm, midwan/amiberry-debian-x86_64:latest"
