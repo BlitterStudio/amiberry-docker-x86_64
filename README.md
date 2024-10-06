@@ -10,4 +10,4 @@ The full image is available on DockerHub: <https://hub.docker.com/repository/doc
 
 `docker run --rm -it -v <dir-you-cloned-amiberry-into>:/build midwan/amiberry-debian-x84_64:latest`
 
-Then you can proceed to compile Amiberry as usual, e.g. `make -j8 PLATFORM=x86-64`
+Then you can proceed to compile Amiberry as usual, e.g. `cmake -B build && cmake --build build`
