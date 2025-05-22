@@ -8,7 +8,7 @@
 ARG debian_release=latest
 FROM debian:${debian_release}
 
-RUN apt-get update && apt dist-upgrade -fuy && apt-get install -y autoconf git build-essential cmake ninja-build libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev libpng-dev libflac-dev libmpg123-dev libmpeg2-4-dev libserialport-dev libportmidi-dev libenet-dev pkgconf
+RUN apt-get update && apt dist-upgrade -fuy && apt-get install -y autoconf git build-essential cmake ninja-build libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev libpng-dev libflac-dev libmpg123-dev libmpeg2-4-dev libserialport-dev libportmidi-dev libenet-dev pkgconf libpcap-dev
 
 WORKDIR /build
 
