@@ -9,7 +9,7 @@ ARG debian_release=latest
 FROM debian:${debian_release}
 
 LABEL maintainer="Dimitris Panokostas"
-LABEL description="Image with the requirements to build Amiberry for Fedora x86_64"
+LABEL description="Image with the requirements to build Amiberry for Debian x86_64"
 
 RUN apt-get update && \
     apt dist-upgrade -fuy && \
