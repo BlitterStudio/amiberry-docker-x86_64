@@ -18,7 +18,7 @@ RUN apt-get update && \
         libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev \
         libpng-dev libflac-dev libmpg123-dev libmpeg2-4-dev \
         libserialport-dev libportmidi-dev libenet-dev \
-        pkgconf libpcap-dev libzstd-dev && \
+        pkgconf libpcap-dev libzstd-dev libglew-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /build
