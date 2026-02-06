@@ -14,7 +14,7 @@ LABEL description="Image with the requirements to build Amiberry for Debian x86_
 RUN apt-get update && \
     apt dist-upgrade -fuy && \
     apt-get install -y --no-install-recommends \
-        autoconf git build-essential cmake ninja-build \
+        autoconf git build-essential cmake file ninja-build \
         libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev \
         libpng-dev libflac-dev libmpg123-dev libmpeg2-4-dev \
         libserialport-dev libportmidi-dev libenet-dev \
