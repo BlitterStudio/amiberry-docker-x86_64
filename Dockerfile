@@ -12,6 +12,11 @@ ARG sdl3_image_repo=https://github.com/libsdl-org/SDL_image.git
 ARG sdl3_image_ref=release-3.2.x
 FROM debian:${debian_release}
 
+ARG sdl3_repo
+ARG sdl3_ref
+ARG sdl3_image_repo
+ARG sdl3_image_ref
+
 LABEL maintainer="Dimitris Panokostas"
 LABEL description="Image with the requirements to build Amiberry for Debian x86_64"
 
@@ -24,14 +29,13 @@ RUN apt-get update && \
         libserialport-dev libportmidi-dev libenet-dev \
         pkgconf libpcap-dev libzstd-dev && \
     if ! apt-get install -y --no-install-recommends libsdl3-dev libsdl3-image-dev; then \
-        apt-get install -y --no-install-recommends \
-            libasound2-dev libdbus-1-dev libdecor-0-dev libdrm-dev libegl1-mesa-dev \
-            libgbm-dev libgl1-mesa-dev libgles2-mesa-dev libglib2.0-dev \
-            libibus-1.0-dev libjpeg62-turbo-dev libpulse-dev libsamplerate0-dev \
-            libsndio-dev libtiff-dev libudev-dev libwayland-dev libwebp-dev \
-            libx11-dev libxcursor-dev libxext-dev libxfixes-dev libxi-dev \
-            libxinerama-dev libxkbcommon-dev libxrandr-dev libxrender-dev \
-            libxss-dev libxt-dev libxv-dev libxxf86vm-dev && \
+        sdl3_build_deps='libasound2-dev libdbus-1-dev libdrm-dev libegl1-mesa-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev libglib2.0-dev libibus-1.0-dev libjpeg62-turbo-dev libpulse-dev libsamplerate0-dev libsndio-dev libtiff-dev libudev-dev libwayland-dev libwebp-dev libx11-dev libxcursor-dev libxext-dev libxfixes-dev libxi-dev libxinerama-dev libxkbcommon-dev libxrandr-dev libxrender-dev libxss-dev libxt-dev libxv-dev libxxf86vm-dev'; \
+        for optional_pkg in libdecor-0-dev; do \
+            if apt-cache show "$optional_pkg" > /dev/null 2>&1; then \
+                sdl3_build_deps="$sdl3_build_deps $optional_pkg"; \
+            fi; \
+        done; \
+        apt-get install -y --no-install-recommends $sdl3_build_deps && \
         git clone --depth 1 --branch ${sdl3_ref} ${sdl3_repo} /tmp/SDL && \
         cmake -S /tmp/SDL -B /tmp/SDL/build -G Ninja \
             -DCMAKE_BUILD_TYPE=Release \
