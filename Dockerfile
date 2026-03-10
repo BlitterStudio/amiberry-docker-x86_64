@@ -16,6 +16,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         autoconf git build-essential cmake file ninja-build \
         libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev \
+        libsdl3-dev libsdl3-image-dev \
         libpng-dev libflac-dev libmpg123-dev libmpeg2-4-dev \
         libserialport-dev libportmidi-dev libenet-dev \
         pkgconf libpcap-dev libzstd-dev && \
