@@ -28,7 +28,7 @@ RUN apt-get update && \
         libpng-dev libflac-dev libmpg123-dev libmpeg2-4-dev \
         libserialport-dev libportmidi-dev libenet-dev \
         pkgconf libpcap-dev libzstd-dev \
-        libcurl4-openssl-dev nlohmann-json3-dev && \
+        libcurl4-openssl-dev nlohmann-json3-dev libdbus-1-dev && \
     if ! apt-get install -y --no-install-recommends libsdl3-dev libsdl3-image-dev; then \
         sdl3_build_deps='libasound2-dev libdbus-1-dev libdrm-dev libegl1-mesa-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev libglib2.0-dev libibus-1.0-dev libjpeg62-turbo-dev libpulse-dev libsamplerate0-dev libsndio-dev libtiff-dev libudev-dev libwayland-dev libwebp-dev libx11-dev libxcursor-dev libxext-dev libxfixes-dev libxi-dev libxinerama-dev libxkbcommon-dev libxrandr-dev libxrender-dev libxss-dev libxt-dev libxv-dev libxxf86vm-dev'; \
         for optional_pkg in libdecor-0-dev; do \
