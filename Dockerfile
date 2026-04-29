@@ -17,8 +17,11 @@ ARG sdl3_ref
 ARG sdl3_image_repo
 ARG sdl3_image_ref
 
-LABEL maintainer="Dimitris Panokostas"
-LABEL description="Image with the requirements to build Amiberry for Debian x86_64"
+LABEL org.opencontainers.image.title="Amiberry build environment (Debian x86_64)"
+LABEL org.opencontainers.image.description="Image with the requirements to build Amiberry for Debian x86_64"
+LABEL org.opencontainers.image.authors="Dimitris Panokostas"
+LABEL org.opencontainers.image.source="https://github.com/BlitterStudio/amiberry-docker-x86_64"
+LABEL org.opencontainers.image.licenses="GPL-3.0"
 
 RUN apt-get update && \
     apt dist-upgrade -fuy && \
