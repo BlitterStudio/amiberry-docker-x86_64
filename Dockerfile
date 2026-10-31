@@ -33,7 +33,7 @@ RUN apt-get update && \
         pkgconf libpcap-dev libzstd-dev \
         libcurl4-openssl-dev nlohmann-json3-dev libdbus-1-dev && \
     if ! apt-get install -y --no-install-recommends libsdl3-dev libsdl3-image-dev; then \
-        sdl3_build_deps='libasound2-dev libdbus-1-dev libdrm-dev libegl1-mesa-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev libglib2.0-dev libibus-1.0-dev libjpeg62-turbo-dev libpulse-dev libsamplerate0-dev libsndio-dev libtiff-dev libudev-dev libwayland-dev libwebp-dev libx11-dev libxcursor-dev libxext-dev libxfixes-dev libxi-dev libxinerama-dev libxkbcommon-dev libxrandr-dev libxrender-dev libxss-dev libxt-dev libxv-dev libxxf86vm-dev'; \
+        sdl3_build_deps='libasound2-dev libdbus-1-dev libdrm-dev libegl1-mesa-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev libglib2.0-dev libibus-1.0-dev libjpeg62-turbo-dev libpulse-dev libsamplerate0-dev libsndio-dev libtiff-dev libudev-dev libwayland-dev libwebp-dev libx11-dev libxcursor-dev libxext-dev libxfixes-dev libxi-dev libxinerama-dev libxkbcommon-dev libxrandr-dev libxrender-dev libxss-dev libxt-dev libxtst-dev libxv-dev libxxf86vm-dev'; \
         for optional_pkg in libdecor-0-dev; do \
             if apt-cache show "$optional_pkg" > /dev/null 2>&1; then \
                 sdl3_build_deps="$sdl3_build_deps $optional_pkg"; \
